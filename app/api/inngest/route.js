@@ -1,6 +1,6 @@
 import { serve } from "inngest/next";
 import { inngest } from "@/inngest/client";
-import { syncUserCreation, syncUserDeletion, syncUserUpdation } from "@/inngest/functions";
+import { deleteCouponOnExpiry, syncUserCreation, syncUserDeletion, syncUserUpdation } from "@/inngest/functions";
 
 // Force Node.js runtime (not Edge)
 export const runtime = "nodejs";
@@ -11,6 +11,7 @@ export const { GET, POST, PUT } = serve({
   functions: [
     syncUserCreation,
     syncUserUpdation,
-    syncUserDeletion
+    syncUserDeletion,
+    deleteCouponOnExpiry
   ],
 });
